@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Novo Registo</h3>
+    <div class="box">
+        <form action="/novo_registo" method="POST">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="username" placeholder="Username" autofocus="" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="obra" placeholder="Obra" autofocus="" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="material" id="material1" placeholder="Material" autofocus="" required>
+                </div>
+            </div>
+
+            <div id="extra-fields"></div>
+
+		    <button type="button" class="button is-block is-info is-large is-fullwidth" onclick="addTextField()">Adicionar Material</button><br><br>
+
+		    <button type="button" class="button is-block is-danger is-large is-fullwidth" onclick="removeTextField()">Remover Material</button><br><br>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="timestamp" id="timestamp" required>
+                </div>
+            </div>
+
+            <button class="button is-block is-info is-large is-fullwidth" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+    <script>
+        // Get the current time as a timestamp
+        var now = new Date().toISOString().slice(0, 19).replace('T', ' ');
+
+        // Set the value of the timestamp input field to the current time
+        document.getElementById("timestamp").value = now;
+    </script>
+
+    <script>
+		var count = 1;
+
+		function addTextField() {
+			var extraFieldsDiv = document.getElementById("extra-fields");
+			var newTextField = document.createElement("input");
+			newTextField.type = "text";
+			newTextField.id = "material" + (++count);
+			newTextField.name = "material" + count;
+			newTextField.className = "input is-large";
+			newTextField.placeholder = "Material";
+			newTextField.required = true;
+			extraFieldsDiv.appendChild(newTextField);
+			extraFieldsDiv.appendChild(document.createElement("br"));
+		}
+
+		function removeTextField() {
+			var extraFieldsDiv = document.getElementById("extra-fields");
+			if (count > 0) {
+				var lastField = document.getElementById("material" + count);
+				extraFieldsDiv.removeChild(lastField);
+				extraFieldsDiv.removeChild(extraFieldsDiv.lastChild);
+				count--;
+			}
+		}
+	</script>
+{% endblock %}

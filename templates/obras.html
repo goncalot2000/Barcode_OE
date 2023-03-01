@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Obras</h3>
+    <div class="box">
+    <div class="buttons">
+        <a href="\add_obra"><button class="button is-block is-info">Adicionar</button></a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for obra in obras %}
+                <tr>
+                    <td>{{ obra[0] }}</td>
+                    <td>{{ obra[1] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+{% endblock %}

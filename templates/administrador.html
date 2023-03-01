@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="columns is-centered">
+    <div class="column is-half">
+        <div class="buttons is-centered">
+            <div class="buttons is-centered">
+                <button href="{{ url_for('people') }}" class="button is-primary is-outlined">Empregados</button>
+                <button href="{{ url_for('obras') }}" class="button is-primary is-outlined">Obras</button>
+                <button href="{{ url_for('material') }}" class="button is-primary is-outlined">Material</button>
+            </div>
+            <br>
+            <div class="buttons is-centered">
+                <button href="{{ url_for('registos') }}" class="button is-primary is-outlined">Registos</button>
+                <button href="{{ url_for('novo_registo') }}" class="button is-primary is-outlined">Novo Registo</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

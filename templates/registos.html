@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Registos</h3>
+    <div class="box">
+        <div class="buttons">
+            <a href="\registos_people_form"><button class="button is-block is-info">People</button></a>
+            <a href="\registos_obras_form"><button class="button is-block is-info">Obras</button></a>
+            <a href="\registos_material_form"><button class="button is-block is-info">Material</button></a>
+            <a href="\registos_data_form"><button class="button is-block is-info">Data</button></a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>People</th>
+                    <th>Obras</th>
+                    <th>Caixas</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for registo in registos %}
+                    <tr>
+                        <td>{{ registo[0] }}</td>
+                        <td>{{ registo[1] }}</td>
+                        <td>{{ registo[2] }}</td>
+                        <td>{{ registo[3] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

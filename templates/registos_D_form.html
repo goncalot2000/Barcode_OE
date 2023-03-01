@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Registo ordenado por data</h3>
+    <div class="box">
+        <form action="/registos_data" method="POST">
+            <div class="field">
+                <label class="label">Qual Data?</label>
+                <div class="control">
+                    <input class="input is-large" type="date" name="r_data" placeholder="Qual Data?">
+                </div>
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
